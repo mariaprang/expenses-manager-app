@@ -5,14 +5,16 @@
 
 <body>
 	<div class="container login-page">
-
 		<form class="login-form">
-			First name:<br> <input type="text" name="firstname"><br>
-			Last name:<br> <input type="text" name="lastname"><br>
-			<label for="file-upload" class="custom-file-upload"> <i
+			Username:<br> <input type="text" name="username"><br>
+			Password:<br> <input type="password" name="password"><br>
+			<label for="file-upload" class="custom-file-upload">
+				<i
 				class="fas fa-cloud-upload"></i> Select image
 			</label> <input id="file-upload" type="file" />
 			<input type="submit" value="Submit">
+			<span for="login">Already a user?</span>
+			<a th:href="@{/login}" id="login">Login</a>
 		</form>
 	</div>
 </body>

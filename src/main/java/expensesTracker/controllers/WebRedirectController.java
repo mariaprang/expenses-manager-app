@@ -1,17 +1,12 @@
 package expensesTracker.controllers;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-public class HomePageController {
+public class WebRedirectController {
 
-	
-	@RequestMapping(value = {"/", "/index", "/home"})
-	public String getHomePage() {
-		return "index";
-	}
-	
 	@RequestMapping("/expenses")
 	public String getExpensesPage() {
 		return "expenses";
@@ -22,9 +17,19 @@ public class HomePageController {
 		return "new-expense";
 	}
 	
-	@RequestMapping("/initialPage")
+	@RequestMapping(value = {"/", "/index"})
 	public String loginPage() {
 		return "registration";
+	}
+
+	@RequestMapping(value = {"/login"})
+	public String showLogin(Model model) {
+		return "login";
+	}
+
+	@RequestMapping(value = {"/dashboard"})
+	public String getDashboard(Model model) {
+		return "index";
 	}
 	
 }
