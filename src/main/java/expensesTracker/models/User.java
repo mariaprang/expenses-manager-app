@@ -2,56 +2,51 @@ package expensesTracker.models;
 
 import java.util.ArrayList;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "users")
 public class User extends BaseEntity{
 	
-	private String firstName;
-	private String lastName;
-	private String imagePath; 
-	
+	private String username;
+	private String password;
+
+	@OneToOne(cascade = CascadeType.ALL)
+	private PhotoFile photoFile;
 	
 	private ArrayList<Expense> expenses;
 	
 
-	public User(String firstName, String lastName, String imagePath) {
-		this.firstName = firstName;
-		this.lastName = lastName;
-		this.imagePath = imagePath;
-	}
-	
-	public void setImagePath(String imagePath) {
-		this.imagePath = imagePath;
-	}
-	
-	
-	public String getImagePath() {
-		return imagePath;
+	public User(String firstName, String lastName) {
+		this.username = firstName;
+		this.password = lastName;
+		this.expenses = new ArrayList<>();
 	}
 	
 	public User() {}
 
-
-	public String getFirstName() {
-		return firstName;
+	public PhotoFile getPhotoFile() {
+		return photoFile;
 	}
 
-	public void setFirstName(String firstName) {
-		this.firstName = firstName;
+	public void setPhotoFile(PhotoFile photoFile) {
+		this.photoFile = photoFile;
 	}
 
-	public String getLastName() {
-		return lastName;
+	public String getUsername() {
+		return username;
 	}
 
-	public void setLastName(String lastName) {
-		this.lastName = lastName;
+	public void setUsername(String username) {
+		this.username = username;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
 	}
 
 	public ArrayList<Expense> getExpenses() {

@@ -4,8 +4,8 @@
 <body>
 <div class="navigation-bar" th:fragment="navigation">
     <img class="profile-image"
-         src="images/user.png">
-    <div class="user-name">John Doe</div>
+         th:src="${photo}">
+    <div class="user-name" th:text="${user.username}"></div>
 
     <div class="section-bar">
         <div class="section">

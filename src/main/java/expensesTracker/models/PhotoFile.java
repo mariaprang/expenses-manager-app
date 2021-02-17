@@ -2,6 +2,7 @@ package expensesTracker.models;
 
 import javax.persistence.Entity;
 import javax.persistence.Lob;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -12,6 +13,9 @@ public class PhotoFile extends BaseEntity{
     private String name;
 
     private String type;
+
+    @OneToOne(mappedBy = "photoFile")
+    private User user;
 
     @Lob
     private byte[] data;

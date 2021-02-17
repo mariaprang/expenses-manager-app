@@ -11,7 +11,7 @@
         <h1 class="app-text">Manager</h1>
 	</div>
 
-    <form class="login-form">
+    <form th:action="@{/authorize}" class="login-form" method="post" enctype="multipart/form-data">
         Username:<br> <input type="text" name="username"><br>
         Password:<br> <input type="password" name="password"><br>
         <label for="file-upload" class="custom-file-upload">
