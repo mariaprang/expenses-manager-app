@@ -208,8 +208,7 @@ input[type="number"]{
 .login-form {
 	color: #2183DD;;
 	width: fit-content;
-	margin: 10% auto;
-	height: 100vh;
+	margin: 3% auto;
 	width: 50%;
 }
 
@@ -242,11 +241,12 @@ input[type="file"] {
 	background-color: transparent;
 	outline: none;
 	color: white;
-	border-bottom: 1px solid white;
+	border-bottom: 1px solid #2183DD;
 	padding: 15px 10px;
 	caret-color: #2183DD;;
 	font-size: 20px;
 	width: 100%;
+	-webkit-box-shadow: 0 0 0 30px white inset !important;
 }
 
 .reg-header {

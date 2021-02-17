@@ -10,11 +10,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "users")
-public class User {
-	
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	private int id;
+public class User extends BaseEntity{
 	
 	private String firstName;
 	private String lastName;
@@ -41,13 +37,6 @@ public class User {
 	
 	public User() {}
 
-	public int getId() {
-		return id;
-	}
-
-	public void setId(int id) {
-		this.id = id;
-	}
 
 	public String getFirstName() {
 		return firstName;
@@ -72,8 +61,5 @@ public class User {
 	public void setExpenses(ArrayList<Expense> expenses) {
 		this.expenses = expenses;
 	}
-	
-	
-	
 
 }

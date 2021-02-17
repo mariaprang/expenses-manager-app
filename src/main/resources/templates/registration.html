@@ -9,16 +9,15 @@
 		<h1 class="app-text">Budget</h1>
         <img src="images/icon-logo.png" >
         <h1 class="app-text">Manager</h1>
-
 	</div>
 
     <form class="login-form">
         Username:<br> <input type="text" name="username"><br>
         Password:<br> <input type="password" name="password"><br>
         <label for="file-upload" class="custom-file-upload">
-            <i
-                    class="fas fa-cloud-upload"></i> Select image
-        </label> <input id="file-upload" type="file"/>
+            <i class="fas fa-cloud-upload"></i> Select image
+        </label>
+        <input id="file-upload" type="file" name="photo"/>
         <input type="submit" value="Submit">
         <span for="login">Already a user?</span>
         <a th:href="@{/login}" id="login">Login</a>
