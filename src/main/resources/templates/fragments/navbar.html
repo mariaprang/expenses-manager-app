@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="de" xmlns:th="http://www.w3.org/1999/xhtml">
+<head th:replace="fragments/header :: head"></head>
+<body>
+<div class="navigation-bar" th:fragment="navigation">
+    <img class="profile-image"
+         src="images/user.png">
+    <div class="user-name">John Doe</div>
+
+    <div class="section-bar">
+        <div class="section">
+            <div class="wrap">
+                <i class="fas fa-laptop-house"></i>
+                <a href="#">Dashboard</a>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="wrap">
+                <i class="fas fa-chart-line"></i> <a th:href="@{/expenses}">Expenses</a>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="wrap">
+                <i class="fas fa-money-check-alt"></i> <a href="#">Income</a>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>

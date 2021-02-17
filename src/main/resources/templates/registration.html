@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/header :: head"></head>
+
+<body>
+	<div class="container login-page">
+
+		<form class="login-form">
+			First name:<br> <input type="text" name="firstname"><br>
+			Last name:<br> <input type="text" name="lastname"><br>
+			<label for="file-upload" class="custom-file-upload"> <i
+				class="fas fa-cloud-upload"></i> Select image
+			</label> <input id="file-upload" type="file" />
+			<input type="submit" value="Submit">
+		</form>
+	</div>
+</body>
+
+</html>

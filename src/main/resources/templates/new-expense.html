@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/header :: head"></head>
+<body>
+	<div class="container">
+		<div th:replace="fragments/navbar::navigation"></div>
+		<div class="main-content">
+			<form class="new-expense-wrap" th:action="@{/addNewExpense}">
+			<div class="form-header">NEW ITEM</div>
+				<div class="form-content">
+					<label for="title">Title:</label>
+					 <input type="text" id="title"
+					 name="expense-title"> <label for="category">Category:</label>
+
+					<select id="category">
+						<option>Supplies</option>
+						<option>Other</option>
+					</select> 
+					<label for="date">Date:</label> <input type="date" id="date"
+						value="date" name="expense-date"> <label for="amount">Amount:</label>
+					<input type="number" id="amount"
+						name="expense-title"> <input type="submit" value="submit">
+				</div>
+			</form>
+		</div>
+	</div>
+</body>
+
+</html>

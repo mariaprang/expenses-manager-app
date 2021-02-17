@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head th:replace="fragments/header :: head"></head>
+<body>
+<div class="container">
+    <div th:replace="fragments/navbar::navigation"></div>
+    <div class="main-content">
+        <div class="header">
+            <span>Expenses</span>
+            <form th:action="@{/newExpense}">
+                <input type="submit" value="New Expense">
+            </form>
+        </div>
+
+        <div class="expenses-content">
+            <span>All expenses</span>
+            <div class="expense-wrap">
+                <div class="title-and-category">
+                    <div class="title">Art supplies</div>
+                    <div class="category-wrap">
+                        <div class="category">
+                            <i class="fas fa-paint-brush"></i>
+                            <span>Supplies</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="date">09/01/16</div>
+                <div class="amount">$98</div>
+            </div>
+
+            <div class="expense-wrap">
+                <div class="title-and-category">
+                    <div class="title">Art supplies</div>
+                    <div class="category-wrap">
+                        <div class="category">
+                            <i class="fas fa-paint-brush"></i>
+                            <span>Supplies</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="date">09/01/16</div>
+                <div class="amount">$98</div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+</body>
+</html>
