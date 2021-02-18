@@ -48,6 +48,7 @@ public class AuthentificationController {
                     .path(String.valueOf(photoFile.getId()))
                     .toUriString();
         model.addAttribute("fileDownloadUri", fileDownloadUri);
+
         return "index";
     }
 

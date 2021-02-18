@@ -4,11 +4,23 @@
 <head th:replace="fragments/header :: head"></head>
 
 <body>
-<div class="container login-page">
-	<form th:href="@{/authorize}" class="login-form">
-		Username:<br> <input type="text" name="firstname"><br>
-		Password:<br> <input type="text" name="lastname"><br>
+<div class="login-page">
+	<div class="reg-header">
+		<h1 class="app-text">Budget</h1>
+		<img src="images/icon-logo.png" >
+		<h1 class="app-text">Manager</h1>
+	</div>
+
+	<div class="intro-wrap">
+		<div class="login-text">Login</div>
+	</div>
+
+	<form th:action="@{/login}" class="login-form" method="post" enctype="multipart/form-data">
+		Username:<br> <input type="text" name="username"><br>
+		Password:<br> <input type="password" name="password"><br>
 		<input type="submit" value="Submit">
+		<span for="register">Don't have an account yet?</span>
+		<a th:href="@{/index}" id="register">Register</a>
 	</form>
 </div>
 </body>

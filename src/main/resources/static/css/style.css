@@ -243,7 +243,7 @@ input[type="file"] {
 	color: white;
 	border-bottom: 1px solid #2183DD;
 	padding: 15px 10px;
-	caret-color: #2183DD;;
+	caret-color: #2183DD;
 	font-size: 20px;
 	width: 100%;
 	-webkit-box-shadow: 0 0 0 30px white inset !important;
@@ -269,4 +269,36 @@ input[type="file"] {
 	font-size: 45px;
 	text-transform: uppercase;
 	font-family: 'Montserrat', sans-serif;
+}
+
+.intro-wrap{
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	width: 50%;
+	margin: 50px auto;
+}
+
+.intro{
+	font-size: 45px;
+	text-transform: uppercase;
+	font-family: 'Montserrat', sans-serif;
+	color: #2183DD;
+	width: 60%;
+}
+
+.intro-motto{
+	margin: 15px 0;
+	color: #606060;
+	font-style: italic;
+}
+
+.login-text, .register{
+	font-size: 30px;
+	text-transform: uppercase;
+	font-family: 'Montserrat', sans-serif;
+	color: #2183DD;
+	width: fit-content;
+	margin: 20px auto;
+	font-weight: bold;
 }
