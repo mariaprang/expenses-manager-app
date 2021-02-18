@@ -15,13 +15,16 @@
 		<div class="login-text">Login</div>
 	</div>
 
-	<form th:action="@{/login}" class="login-form" method="post" enctype="multipart/form-data">
+	<form th:action="@{/login}" method="post" class="login-form" enctype="multipart/form-data">
 		Username:<br> <input type="text" name="username"><br>
 		Password:<br> <input type="password" name="password"><br>
 		<input type="submit" value="Submit">
 		<span for="register">Don't have an account yet?</span>
-		<a th:href="@{/index}" id="register">Register</a>
+		<a th:href="@{/register}" id="register">Register</a>
 	</form>
+
+<!--	<div th:if="${message}" th:text="${message}" class="error"/>-->
+
 </div>
 </body>
 

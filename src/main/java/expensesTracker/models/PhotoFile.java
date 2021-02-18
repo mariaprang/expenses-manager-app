@@ -9,7 +9,6 @@ import javax.persistence.Table;
 @Table(name="user_photos")
 public class PhotoFile extends BaseEntity{
 
-
     private String name;
 
     private String type;

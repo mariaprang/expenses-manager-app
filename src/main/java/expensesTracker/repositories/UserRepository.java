@@ -8,4 +8,6 @@ import expensesTracker.models.User;
 @Repository
 public interface UserRepository extends CrudRepository<User, Integer> {
 
+    public User findUserByUsername(String username);
+
 }

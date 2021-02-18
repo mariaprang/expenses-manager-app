@@ -240,7 +240,7 @@ input[type="file"] {
 	border-left: none;
 	background-color: transparent;
 	outline: none;
-	color: white;
+	color: black;
 	border-bottom: 1px solid #2183DD;
 	padding: 15px 10px;
 	caret-color: #2183DD;
@@ -301,4 +301,14 @@ input[type="file"] {
 	width: fit-content;
 	margin: 20px auto;
 	font-weight: bold;
+}
+
+.error{
+	width: 100%;
+	padding: 10px;
+	background-color: #ff4d4d;
+	color: #fff;
+	font-family: 'Montserrat', sans-serif;
+	font-size: 20px;
+	text-align: center;
 }
