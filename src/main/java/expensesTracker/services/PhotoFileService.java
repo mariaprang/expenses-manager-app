@@ -9,6 +9,8 @@ import org.springframework.util.StringUtils;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
+import java.util.List;
+import java.util.stream.Stream;
 
 @Service
 public class PhotoFileService {
@@ -22,4 +24,13 @@ public class PhotoFileService {
         photoFileRepository.save(photoFile);
         return photoFile;
     }
+
+    public PhotoFile getFileById(Long id){
+        return photoFileRepository.findById(id).get();
+    }
+
+    public List<PhotoFile> getAllFiles() {
+        return (List<PhotoFile>) photoFileRepository.findAll();
+    }
+
 }
