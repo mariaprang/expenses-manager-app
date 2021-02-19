@@ -13,100 +13,111 @@ import javax.persistence.*;
 @Entity
 @Table(name = "users")
 public class User extends BaseEntity implements UserDetails {
-	
-	private String username;
-	private String password;
 
-	@Transient
-	private boolean accountNonExpired;
-	@Transient
-	private boolean accountNonLocked;
-	@Transient
-	private boolean credentialsNonExpired;
-	@Transient
-	private boolean isEnabled;
+    private String username;
+    private String password;
+    private double balance;
 
-	@OneToOne(cascade = CascadeType.ALL)
-	private PhotoFile photoFile;
-	
-	private ArrayList<Expense> expenses;
-	
+    @Transient
+    private boolean accountNonExpired;
+    @Transient
+    private boolean accountNonLocked;
+    @Transient
+    private boolean credentialsNonExpired;
+    @Transient
+    private boolean isEnabled;
 
-	public User(String firstName, String lastName) {
-		this.username = firstName;
-		this.password = lastName;
-		this.expenses = new ArrayList<>();
-		this.isEnabled = true;
-		this.credentialsNonExpired = true;
-		this.accountNonExpired = true;
-		this.accountNonLocked = true;
-		this.accountNonExpired = true;
-	}
-	
-	public User() {
-		this.isEnabled = true;
-		this.credentialsNonExpired = true;
-		this.accountNonExpired = true;
-		this.accountNonLocked = true;
-		this.accountNonExpired = true;
-	}
+    @OneToOne(cascade = CascadeType.ALL)
+    private PhotoFile photoFile;
 
-	public PhotoFile getPhotoFile() {
-		return photoFile;
-	}
+    private ArrayList<Expense> expenses;
 
-	public void setPhotoFile(PhotoFile photoFile) {
-		this.photoFile = photoFile;
-	}
 
-	public String getUsername() {
-		return username;
-	}
+    public User(String firstName, String lastName) {
+        this.username = firstName;
+        this.password = lastName;
+        this.balance = 0;
+        this.expenses = new ArrayList<>();
+        this.isEnabled = true;
+        this.credentialsNonExpired = true;
+        this.accountNonExpired = true;
+        this.accountNonLocked = true;
+        this.accountNonExpired = true;
+    }
 
-	@Override
-	public boolean isAccountNonExpired() {
-		return accountNonExpired;
-	}
+    public User() {
+        this.balance = 0;
+        this.isEnabled = true;
+        this.credentialsNonExpired = true;
+        this.accountNonExpired = true;
+        this.accountNonLocked = true;
+        this.accountNonExpired = true;
+    }
 
-	@Override
-	public boolean isAccountNonLocked() {
-		return accountNonLocked;
-	}
+    public double getBalance() {
+        return balance;
+    }
 
-	@Override
-	public boolean isCredentialsNonExpired() {
-		return credentialsNonExpired;
-	}
+    public void setBalance(double balance) {
+        this.balance = balance;
+    }
 
-	@Override
-	public boolean isEnabled() {
-		return isEnabled;
-	}
+    public PhotoFile getPhotoFile() {
+        return photoFile;
+    }
 
-	public void setUsername(String username) {
-		this.username = username;
-	}
+    public void setPhotoFile(PhotoFile photoFile) {
+        this.photoFile = photoFile;
+    }
 
-	@Override
-	public Collection<? extends GrantedAuthority> getAuthorities() {
-		return Arrays.asList(new SimpleGrantedAuthority("USER"));
+    public String getUsername() {
+        return username;
+    }
 
-	}
+    @Override
+    public boolean isAccountNonExpired() {
+        return accountNonExpired;
+    }
 
-	public String getPassword() {
-		return password;
-	}
+    @Override
+    public boolean isAccountNonLocked() {
+        return accountNonLocked;
+    }
 
-	public void setPassword(String password) {
-		this.password = password;
-	}
+    @Override
+    public boolean isCredentialsNonExpired() {
+        return credentialsNonExpired;
+    }
 
-	public ArrayList<Expense> getExpenses() {
-		return expenses;
-	}
+    @Override
+    public boolean isEnabled() {
+        return isEnabled;
+    }
 
-	public void setExpenses(ArrayList<Expense> expenses) {
-		this.expenses = expenses;
-	}
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    @Override
+    public Collection<? extends GrantedAuthority> getAuthorities() {
+        return Arrays.asList(new SimpleGrantedAuthority("USER"));
+
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public ArrayList<Expense> getExpenses() {
+        return expenses;
+    }
+
+    public void setExpenses(ArrayList<Expense> expenses) {
+        this.expenses = expenses;
+    }
 
 }

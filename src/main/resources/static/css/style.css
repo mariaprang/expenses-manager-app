@@ -1,314 +1,339 @@
-@import
-	url('https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@100;300;400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@100;300;400;600&display=swap');
 
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;400;900&display=swap');
 
 body {
-	padding: 0;
-	margin: 0;
-	font-family: 'Libre Franklin', sans-serif;
+    padding: 0;
+    margin: 0;
+    font-family: 'Libre Franklin', sans-serif;
 }
 
 .container {
-	width: 100%;
-	display: flex;
-	flex-direction: row;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
 }
 
 .navigation-bar {
-	width: 18%;
-	height: 100vh;
-	padding: 20px 0;
-	text-align: center;
-	background-color: #2283DD;
+    width: 18%;
+    height: 100vh;
+    padding: 20px 0;
+    text-align: center;
+    background-color: #2283DD;
 }
 
 .main-content {
-	width: 75%;
-	height: 100vh;
-	margin: 0 auto;
-	padding: 50px;
+    width: 75%;
+    height: 100vh;
+    margin: 0 auto;
+    padding: 50px;
 }
 
 .profile-image {
-	width: 100px;
-	border: 2px solid #fff;
-	border-radius: 70px;
-	padding: 10px;
+    width: 100px;
+    border: 2px solid #fff;
+    border-radius: 70px;
+    padding: 10px;
 }
 
 .user-name {
-	font-size: 20px;
-	color: #fff;
+    font-size: 20px;
+    color: #fff;
 }
 
 .section {
-	width: 100%;
-	padding: 20px 0;
-	color: #fff;
+    width: 100%;
+    padding: 20px 0;
+    color: #fff;
 }
 
 .section:hover {
-	background-color: #91c1ee;
-	cursor: pointer;
+    background-color: #91c1ee;
+    cursor: pointer;
 }
 
 .section a {
-	color: #fff;
-	font-size: 20px;
-	text-decoration: none;
-	margin-left: 10px;
+    color: #fff;
+    font-size: 20px;
+    text-decoration: none;
+    margin-left: 10px;
 }
 
 .wrap {
-	width: 80%;
-	margin: 0 auto;
+    width: 80%;
+    margin: 0 auto;
 }
 
 .section i {
-	float: left;
-	color: #a5cff3;
-	font-size: 25px;
+    float: left;
+    color: #a5cff3;
+    font-size: 25px;
 }
 
 .section-bar {
-	margin-top: 100px;
+    margin-top: 100px;
 }
 
 .header {
-	display: flex;
-	flex-direction: row;
-	justify-content: space-between;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 }
 
 .header span {
-	font-size: 30px;
+    font-size: 30px;
 }
 
 .header form input {
-	font-size: 25px;
-	-webkit-appearence: none;
-	background: transparent;
-	box-shadow: 0px 0px 0px transparent;
-	border: 0px solid transparent;
-	text-shadow: 0px 0px 0px transparent;
-	background-color: #85C525;
-	padding: 10px 20px;
-	color: #fff;
-	border-radius: 5px;
+    font-size: 25px;
+    -webkit-appearence: none;
+    background: transparent;
+    box-shadow: 0px 0px 0px transparent;
+    border: 0px solid transparent;
+    text-shadow: 0px 0px 0px transparent;
+    background-color: #85C525;
+    padding: 10px 20px;
+    color: #fff;
+    border-radius: 5px;
 }
 
 .header form input:hover {
-	background-color: #8de011;
-	cursor: pointer;
+    background-color: #8de011;
+    cursor: pointer;
 }
 
 .header {
-	padding-bottom: 30px;
-	border-bottom: 1px solid #babdc1;
+    padding-bottom: 30px;
+    border-bottom: 1px solid #babdc1;
 }
 
 .expenses-content {
-	margin-top: 30px;
-	font-size: 25px;
+    margin-top: 30px;
+    font-size: 25px;
 }
 
 .expense-wrap {
-	display: flex;
-	flex-direction: row;
-	justify-content: space-between;
-	padding: 10px 0;
-	font-size: 20px;
-	width: 100%;
-	margin-top: 2%;
-	border-top: 1px solid #babdc1;
-	border-bottom: 1px solid #babdc1;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 10px 0;
+    font-size: 20px;
+    width: 100%;
+    margin-top: 2%;
+    border-top: 1px solid #babdc1;
+    border-bottom: 1px solid #babdc1;
 }
 
 .title {
-	margin: 5px;
+    margin: 5px;
 }
 
 .category {
-	width: fit-content;
-	margin: 0 auto;
-	font-size: 15px;
-	color: #a1a5aa;
-	display: flex;
-	flex-direction: row;
-	text-align: center;
+    width: fit-content;
+    margin: 0 auto;
+    font-size: 15px;
+    color: #a1a5aa;
+    display: flex;
+    flex-direction: row;
+    text-align: center;
 }
 
 .category i {
-	color: #00cc99;
+    color: #00cc99;
 }
 
 .new-expense-wrap {
-	width: 50%;
-	margin: 10% auto;
-	-webkit-box-shadow: 2px 1px 14px -3px #000000;
-	box-shadow: 2px 1px 14px -3px #000000;
-	font-size: 20px;
-	box-shadow: 2px 1px 14px -3px #000000;
+    width: 50%;
+    margin: 10% auto;
+    -webkit-box-shadow: 2px 1px 14px -3px #000000;
+    box-shadow: 2px 1px 14px -3px #000000;
+    font-size: 20px;
+    box-shadow: 2px 1px 14px -3px #000000;
 }
 
 .new-expense-wrap input, .new-expense-wrap select {
-	width: 100%;
-	font-size: 20px;
-	margin-bottom: 10px;
-	border: 1px solid #bfbfbf;
-	border-radius: 5px;
+    width: 100%;
+    font-size: 20px;
+    margin-bottom: 10px;
+    border: 1px solid #bfbfbf;
+    border-radius: 5px;
 }
 
 .new-expense-wrap label {
-	text-transform: uppercase;
-	color: #bfbfbf;
-	margin-bottom: 5px;
+    text-transform: uppercase;
+    color: #bfbfbf;
+    margin-bottom: 5px;
 }
 
 .form-content {
-	width: 70%;
-	margin: 0 auto;
-	display: flex;
-	flex-direction: column;
-	padding: 50px;
+    width: 70%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    padding: 50px;
 }
 
-input[type="submit"]{
-	background-color: #85C525;
-	color: #fff;
-	text-transform: uppercase;
-	padding: 10px 0;
-	margin-top: 20px;
+input[type="submit"] {
+    background-color: #85C525;
+    color: #fff;
+    text-transform: uppercase;
+    padding: 10px 0;
+    margin-top: 20px;
 }
 
-input[type="submit"]:hover{
-	background-color: #8de011;
-	cursor:pointer;
+input[type="submit"]:hover {
+    background-color: #8de011;
+    cursor: pointer;
 }
 
-.form-header{
-	width:85%;
-	background-color: #E8EBEE;
-	align-items:center;
-	padding:20px 7.5%;
-	color: #808080;
-	text-transform: uppercase;
+.form-header {
+    width: 85%;
+    background-color: #E8EBEE;
+    align-items: center;
+    padding: 20px 7.5%;
+    color: #808080;
+    text-transform: uppercase;
 }
 
 select,
 input[type="text"],
-input[type="date"], 
-input[type="number"]{
-	padding: 5px;
+input[type="date"],
+input[type="number"] {
+    padding: 5px;
 }
-
 
 
 .login-form {
-	color: #2183DD;;
-	width: fit-content;
-	margin: 3% auto;
-	width: 50%;
+    color: #2183DD;;
+    width: fit-content;
+    margin: 3% auto;
+    width: 50%;
 }
 
 .login-form input[type="submit"] {
-	background: rgba(33, 131, 221, .7);
-	width: 100%;
-	padding: 2vh;
-	border: none;
-	cursor: pointer;
-	border-radius: 4px 4px;
-	margin-bottom: 30px;
+    background: rgba(33, 131, 221, .7);
+    width: 100%;
+    padding: 2vh;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px 4px;
+    margin-bottom: 30px;
 }
 
 input[type="file"] {
-	display: none;
+    display: none;
 }
 
 .custom-file-upload {
-	border: 1px solid #ccc;
-	display: inline-block;
-	padding: 6px 12px;
-	cursor: pointer;
+    border: 1px solid #ccc;
+    display: inline-block;
+    padding: 6px 12px;
+    cursor: pointer;
 }
 
 .login-form input[type="text"], input[type="password"] {
-	margin-bottom: 5vh;
-	border-right: none;
-	border-top: none;
-	border-left: none;
-	background-color: transparent;
-	outline: none;
-	color: black;
-	border-bottom: 1px solid #2183DD;
-	padding: 15px 10px;
-	caret-color: #2183DD;
-	font-size: 20px;
-	width: 100%;
-	-webkit-box-shadow: 0 0 0 30px white inset !important;
+    margin-bottom: 5vh;
+    border-right: none;
+    border-top: none;
+    border-left: none;
+    background-color: transparent;
+    outline: none;
+    color: black;
+    border-bottom: 1px solid #2183DD;
+    padding: 15px 10px;
+    caret-color: #2183DD;
+    font-size: 20px;
+    width: 100%;
+    -webkit-box-shadow: 0 0 0 30px white inset !important;
 }
 
 .reg-header {
-	background-color: #2183DD;
-	width: 100%;
-	padding: 100px 0;
-	display: flex;
-	flex-direction: row;
-	justify-content: center;
-	box-shadow: 0 2px 2px -2px rgba(0,0,0,.5);
+    background-color: #2183DD;
+    width: 100%;
+    padding: 100px 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    box-shadow: 0 2px 2px -2px rgba(0, 0, 0, .5);
 }
 
-.reg-header img{
-	width: 200px;
+.reg-header img {
+    width: 200px;
 }
 
-.app-text{
-	margin: 70px;
-	color: #fff;
-	font-size: 45px;
-	text-transform: uppercase;
-	font-family: 'Montserrat', sans-serif;
+.app-text {
+    margin: 70px;
+    color: #fff;
+    font-size: 45px;
+    text-transform: uppercase;
+    font-family: 'Montserrat', sans-serif;
 }
 
-.intro-wrap{
-	display: flex;
-	flex-direction: column;
-	justify-content: flex-start;
-	width: 50%;
-	margin: 50px auto;
+.intro-wrap {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    width: 50%;
+    margin: 50px auto;
 }
 
-.intro{
-	font-size: 45px;
-	text-transform: uppercase;
-	font-family: 'Montserrat', sans-serif;
-	color: #2183DD;
-	width: 60%;
+.intro {
+    font-size: 45px;
+    text-transform: uppercase;
+    font-family: 'Montserrat', sans-serif;
+    color: #2183DD;
+    width: 60%;
 }
 
-.intro-motto{
-	margin: 15px 0;
-	color: #606060;
-	font-style: italic;
+.intro-motto {
+    margin: 15px 0;
+    color: #606060;
+    font-style: italic;
 }
 
-.login-text, .register{
-	font-size: 30px;
-	text-transform: uppercase;
-	font-family: 'Montserrat', sans-serif;
-	color: #2183DD;
-	width: fit-content;
-	margin: 20px auto;
-	font-weight: bold;
+.login-text, .register {
+    font-size: 30px;
+    text-transform: uppercase;
+    font-family: 'Montserrat', sans-serif;
+    color: #2183DD;
+    width: fit-content;
+    margin: 20px auto;
+    font-weight: bold;
 }
 
-.error{
-	width: 100%;
-	padding: 10px;
-	background-color: #ff4d4d;
-	color: #fff;
-	font-family: 'Montserrat', sans-serif;
-	font-size: 20px;
-	text-align: center;
+.error {
+    width: 100%;
+    padding: 10px;
+    background-color: #ff4d4d;
+    color: #fff;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 20px;
+    text-align: center;
+}
+
+.section-header {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 35px;
+}
+
+.wallet-wrap{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 11%;
+    background-color: #F4F7FA;
+    padding: 20px;
+    border-radius: 10px;
+    margin: 20px 0;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.money{
+    color: #32b382;
+    margin-top: 10px;
+}
+
+.wallet-wrap i{
+    font-size: 25px;
+    color: #99704A;
 }

@@ -7,6 +7,21 @@
        <div th:replace="fragments/navbar::navigation"></div>
 		<div class="main-content">
 
+			<div class="section-header">
+				Dashboard
+			</div>
+
+			<div class="wallet-wrap">
+				<i class="fas fa-wallet"></i>
+				<div>
+					<div>Total Balance</div>
+					<div class="money" th:text="${user.balance}+' USD'"></div>
+				</div>
+			</div>
+
+			<div class="section-header">
+				Transactions
+			</div>
 
 		</div>
 	</div>

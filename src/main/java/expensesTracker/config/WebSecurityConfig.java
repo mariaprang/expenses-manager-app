@@ -58,7 +58,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 "/registerNew",
                 "/login",
                 "/webjars/**",
-                "/dashboard",
                 "/"
         };
 

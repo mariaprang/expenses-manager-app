@@ -11,9 +11,6 @@ import java.util.Optional;
 @Controller
 public class  LoginController {
 
-
-//    private static final Logger log = LoggerFactory.getLogger(LoginController.class);
-
     @RequestMapping(value = {"/","/login", "/logout-success"}, method = RequestMethod.GET)
     public String getLoginPage(@RequestParam Optional<String> error, Model model) {
         return "login";

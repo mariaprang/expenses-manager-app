@@ -35,9 +35,9 @@ public class AuthentificationController {
 
     @RequestMapping("/registerNew")
     public String registerUser(@RequestParam("username") String username,
-                                @RequestParam("password") String password,
-                                @RequestParam("photo") MultipartFile multipartFile,
-                                Model model) throws IOException {
+                               @RequestParam("password") String password,
+                               @RequestParam("photo") MultipartFile multipartFile,
+                               Model model) throws IOException {
         User user = new User(username, passwordEncoder.encode(password));
         PhotoFile photoFile = photoFileService.saveOrUpdatePhoto(multipartFile);
         user.setPhotoFile(photoFile);
@@ -45,10 +45,10 @@ public class AuthentificationController {
         model.addAttribute("user", user);
 
         String fileDownloadUri = ServletUriComponentsBuilder
-                    .fromCurrentContextPath()
-                    .path("/files/")
-                    .path(String.valueOf(photoFile.getId()))
-                    .toUriString();
+                .fromCurrentContextPath()
+                .path("/files/")
+                .path(String.valueOf(photoFile.getId()))
+                .toUriString();
         model.addAttribute("fileDownloadUri", fileDownloadUri);
 
         return "redirect:/dashboard";
@@ -60,12 +60,16 @@ public class AuthentificationController {
         String username = auth.getName();
         User user = userService.loadUserByUsername(username);
         model.addAttribute("user", user);
-        String fileDownloadUri = ServletUriComponentsBuilder
-                .fromCurrentContextPath()
-                .path("/files/")
-                .path(String.valueOf(user.getPhotoFile().getId()))
-                .toUriString();
+        String fileDownloadUri = "default-profile";
+        if (user.getPhotoFile() != null) {
+            fileDownloadUri = ServletUriComponentsBuilder
+                    .fromCurrentContextPath()
+                    .path("/files/")
+                    .path(String.valueOf(user.getPhotoFile().getId()))
+                    .toUriString();
+        }
         model.addAttribute("fileDownloadUri", fileDownloadUri);
+
         return "dashboard";
     }
 
@@ -110,7 +114,6 @@ public class AuthentificationController {
                 .header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=\"" + fileDB.getName() + "\"")
                 .body(fileDB.getData());
     }
-
 
 
 }
