@@ -8,6 +8,11 @@ body {
     font-family: 'Libre Franklin', sans-serif;
 }
 
+.row{
+    display: flex;
+    flex-direction: row;
+}
+
 .container {
     width: 100%;
     display: flex;
@@ -173,19 +178,6 @@ body {
     padding: 50px;
 }
 
-input[type="submit"] {
-    background-color: #85C525;
-    color: #fff;
-    text-transform: uppercase;
-    padding: 10px 0;
-    margin-top: 20px;
-}
-
-input[type="submit"]:hover {
-    background-color: #8de011;
-    cursor: pointer;
-}
-
 .form-header {
     width: 85%;
     background-color: #E8EBEE;
@@ -336,4 +328,21 @@ input[type="file"] {
 .wallet-wrap i{
     font-size: 25px;
     color: #99704A;
+}
+
+.create-new-button{
+    font-size: 25px;
+    -webkit-appearence: none;
+    background: transparent;
+    box-shadow: 0px 0px 0px transparent;
+    border: 0px solid transparent;
+    text-shadow: 0px 0px 0px transparent;
+    background-color: #85C525;
+    padding: 10px 20px;
+    color: #fff;
+    border-radius: 5px;
+}
+
+.space-between{
+    justify-content: space-between;
 }

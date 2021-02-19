@@ -19,8 +19,11 @@
 				</div>
 			</div>
 
-			<div class="section-header">
+			<div class="section-header row space-between">
 				Transactions
+				<form th:action="@{/newTransaction}">
+					<input type="submit" class="create-new-button" value="New Expense">
+				</form>
 			</div>
 
 		</div>

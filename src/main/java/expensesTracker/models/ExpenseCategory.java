@@ -3,9 +3,13 @@ package expensesTracker.models;
 public enum ExpenseCategory {
    
 	GROCERIES, 
-	LEISURE, 
+	FUN,
 	CLOTHING, 
 	TRAVEL, 
 	EDUCATION, 
-	SUPPLIES
+	HEALTH,
+	RENT,
+	HOME,
+	PETS,
+	TRANSPORT
 }

@@ -9,31 +9,17 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "expenses")
-public class Expense extends BaseEntity {
+@Table(name="expenses")
+public class Expense extends Transaction {
 
-    private String title;
     private ExpenseCategory category;
-    private LocalDate dateOfEntry;
-    private double amountOfExpense;
 
     public Expense() {
     }
 
-    public Expense(String title, ExpenseCategory category,
-                   LocalDate dateOfEntry, double amountOfExpense) {
-        this.title = title;
+    public Expense(String title, TransactionType transactionType, LocalDate dateOfEntry, double transactionAmount, ExpenseCategory category) {
+        super(title, transactionType, dateOfEntry, transactionAmount);
         this.category = category;
-        this.dateOfEntry = dateOfEntry;
-        this.amountOfExpense = amountOfExpense;
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
     }
 
     public ExpenseCategory getCategory() {
@@ -43,22 +29,4 @@ public class Expense extends BaseEntity {
     public void setCategory(ExpenseCategory category) {
         this.category = category;
     }
-
-    public LocalDate getDateOfEntry() {
-        return dateOfEntry;
-    }
-
-    public void setDateOfEntry(LocalDate dateOfEntry) {
-        this.dateOfEntry = dateOfEntry;
-    }
-
-    public double getAmountOfExpense() {
-        return amountOfExpense;
-    }
-
-    public void setAmountOfExpense(double amountOfExpense) {
-        this.amountOfExpense = amountOfExpense;
-    }
-
-
 }

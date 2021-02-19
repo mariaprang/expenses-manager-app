@@ -7,6 +7,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
+import java.util.List;
 
 import javax.persistence.*;
 
@@ -17,7 +18,6 @@ public class User extends BaseEntity implements UserDetails {
     private String username;
     private String password;
     private double balance;
-
     @Transient
     private boolean accountNonExpired;
     @Transient
@@ -30,14 +30,15 @@ public class User extends BaseEntity implements UserDetails {
     @OneToOne(cascade = CascadeType.ALL)
     private PhotoFile photoFile;
 
-    private ArrayList<Expense> expenses;
+    @OneToMany(mappedBy = "user")
+    private List<Transaction> allTransactions;
 
 
     public User(String firstName, String lastName) {
         this.username = firstName;
         this.password = lastName;
         this.balance = 0;
-        this.expenses = new ArrayList<>();
+        this.allTransactions = new ArrayList<>();
         this.isEnabled = true;
         this.credentialsNonExpired = true;
         this.accountNonExpired = true;
@@ -112,12 +113,12 @@ public class User extends BaseEntity implements UserDetails {
         this.password = password;
     }
 
-    public ArrayList<Expense> getExpenses() {
-        return expenses;
+    public List getExpenses() {
+        return allTransactions;
     }
 
-    public void setExpenses(ArrayList<Expense> expenses) {
-        this.expenses = expenses;
+    public void setExpenses(ArrayList<Transaction> allTransactions) {
+        this.allTransactions = allTransactions;
     }
 
 }
