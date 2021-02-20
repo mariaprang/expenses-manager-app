@@ -20,6 +20,7 @@ public class Expense extends Transaction {
     public Expense(String title, TransactionType transactionType, LocalDate dateOfEntry, double transactionAmount, ExpenseCategory category) {
         super(title, transactionType, dateOfEntry, transactionAmount);
         this.category = category;
+        this.isExpense = true;
     }
 
     public ExpenseCategory getCategory() {

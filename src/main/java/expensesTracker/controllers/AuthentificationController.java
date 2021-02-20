@@ -1,8 +1,10 @@
 package expensesTracker.controllers;
 
 import expensesTracker.models.PhotoFile;
+import expensesTracker.models.Transaction;
 import expensesTracker.models.User;
 import expensesTracker.services.PhotoFileService;
+import expensesTracker.services.TransactionService;
 import expensesTracker.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
@@ -20,6 +22,7 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import java.io.IOException;
+import java.util.List;
 
 @Controller
 public class AuthentificationController {
@@ -32,6 +35,9 @@ public class AuthentificationController {
 
     @Autowired
     private PasswordEncoder passwordEncoder;
+
+    @Autowired
+    private TransactionService transactionService;
 
     @RequestMapping("/registerNew")
     public String registerUser(@RequestParam("username") String username,
@@ -59,7 +65,7 @@ public class AuthentificationController {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         String username = auth.getName();
         User user = userService.loadUserByUsername(username);
-        model.addAttribute("user", user);
+
         String fileDownloadUri = "default-profile";
         if (user.getPhotoFile() != null) {
             fileDownloadUri = ServletUriComponentsBuilder
@@ -68,6 +74,11 @@ public class AuthentificationController {
                     .path(String.valueOf(user.getPhotoFile().getId()))
                     .toUriString();
         }
+
+        List<Transaction> allTransactions = transactionService.getTransactionsForUser(user);
+        System.out.println("HERE YOU ARE: "+allTransactions);
+        model.addAttribute("allTransactions", allTransactions);
+        model.addAttribute("user", user);
         model.addAttribute("fileDownloadUri", fileDownloadUri);
 
         return "dashboard";

@@ -38,6 +38,13 @@ public class TestData {
         transactionService.saveTransaction(transaction2);
 
 
+        Transaction transaction3 = new Expense("Bought groceries", TransactionType.EXPENSE, LocalDate.now(), 70, ExpenseCategory.GROCERIES);
+        user.getExpenses().add(transaction3);
+        transaction3.setUser(user);
+        transactionService.saveTransaction(transaction3);
+
+        User user2 = new User("mest@gmail.com", passwordEncoder.encode("test"));
+        userService.saveUser(user2);
 
     }
 }

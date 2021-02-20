@@ -13,6 +13,7 @@ public class IncomeTransaction extends Transaction{
     public IncomeTransaction(String title, TransactionType transactionType, LocalDate dateOfEntry, double transactionAmount, String incomeSource) {
         super(title, transactionType, dateOfEntry, transactionAmount);
         this.incomeSource = incomeSource;
+        this.isExpense = false;
     }
 
     public IncomeTransaction() { }

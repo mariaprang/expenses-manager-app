@@ -12,6 +12,9 @@ public class Transaction extends BaseEntity {
     private LocalDate dateOfEntry;
     private double transactionAmount;
 
+
+    protected boolean isExpense;
+
     @ManyToOne
     @JoinColumn(name = "username", nullable = false)
     private User user;
@@ -24,6 +27,14 @@ public class Transaction extends BaseEntity {
     }
 
     public Transaction() {
+    }
+
+    public boolean isExpense() {
+        return isExpense;
+    }
+
+    public void setExpense(boolean expense) {
+        isExpense = expense;
     }
 
     public void setUser(User user) {

@@ -22,8 +22,41 @@
 			<div class="section-header row space-between">
 				Transactions
 				<form th:action="@{/newTransaction}">
-					<input type="submit" class="create-new-button" value="New Expense">
+					<input type="submit" class="create-new-button" value="New Transaction">
 				</form>
+			</div>
+
+
+
+			<div th:unless="${#lists.isEmpty(allTransactions)}" class="all-expenses">
+
+				<div class="expense-wrap" th:each="transaction : ${allTransactions}">
+					<div class="title-and-category">
+						<div class="title" th:text="${transaction.title}"></div>
+						<div th:if="${transaction.isExpense}" class="category-wrap">
+							<div class="category">
+								<th:block th:switch="${transaction.category}">
+									<div th:case="${T(expensesTracker.models.ExpenseCategory).GROCERIES}">
+										<i class="fas fa-shopping-cart"></i>
+										<span>Groceries</span>
+									</div>
+									<div th:case="${T(expensesTracker.models.ExpenseCategory).FUN}">
+										<i class="fas fa-cocktail"></i>
+										<span>FUN</span>
+									</div>
+								</th:block>
+							</div>
+						</div>
+					</div>
+					<div class="date">09/01/16</div>
+					<div class="amount">$98</div>
+				</div>
+			</div>
+
+			<div th:if="${#lists.isEmpty(allTransactions)}" class="empty-div">
+				<div><img src="images/box.png"></div>
+				<span class="instructions">Looks like you don't have any transactions so far!
+						Click <span style="color: black; font-width: 600; font-style: italic">"New Transaction"</span> above and start planning your budget!	</span>
 			</div>
 
 		</div>
