@@ -9,7 +9,6 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="expenses")
 public class Expense extends Transaction {
 
     private ExpenseCategory category;

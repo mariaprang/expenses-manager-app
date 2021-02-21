@@ -2,26 +2,34 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;400;900&display=swap');
 
+
+html {
+    height: 100%;
+}
+
 body {
+    width:100%;
+    min-height: 100%;
     padding: 0;
     margin: 0;
     font-family: 'Libre Franklin', sans-serif;
 }
 
-.row{
+.row {
     display: flex;
     flex-direction: row;
 }
 
 .container {
     width: 100%;
+    min-height: 100%;
     display: flex;
     flex-direction: row;
 }
 
 .navigation-bar {
     width: 18%;
-    height: auto;
+    min-height: 100%;
     padding: 20px 0;
     text-align: center;
     background-color: #2283DD;
@@ -29,7 +37,7 @@ body {
 
 .main-content {
     width: 75%;
-    height: 100vh;
+    height: 100%;
     margin: 0 auto;
     padding: 50px;
 }
@@ -308,7 +316,7 @@ input[type="file"] {
     font-size: 35px;
 }
 
-.wallet-wrap{
+.wallet-wrap {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -320,17 +328,17 @@ input[type="file"] {
     font-family: 'Montserrat', sans-serif;
 }
 
-.money{
+.money {
     color: #32b382;
     margin-top: 10px;
 }
 
-.wallet-wrap i{
+.wallet-wrap i {
     font-size: 25px;
     color: #99704A;
 }
 
-.create-new-button{
+.create-new-button {
     font-size: 25px;
     -webkit-appearence: none;
     background: transparent;
@@ -343,24 +351,24 @@ input[type="file"] {
     border-radius: 5px;
 }
 
-.space-between{
+.space-between {
     justify-content: space-between;
 }
 
-.empty-div{
+.empty-div {
     margin: 10% 0;
     display: flex;
     flex-direction: column;
     text-align: center;
 }
 
-.empty-div img{
+.empty-div img {
     width: 200px;
     margin: 20px 0;
 }
 
-.instructions{
-    letter-spacing:2px;
+.instructions {
+    letter-spacing: 2px;
     font-family: 'Libre Franklin', sans-serif;
     font-size: 20px;
     font-weight: bold;
@@ -369,3 +377,4 @@ input[type="file"] {
     color: #606060;
     text-transform: uppercase;
 }
+

@@ -22,26 +22,28 @@ public class TestData {
     @Autowired
     private PasswordEncoder passwordEncoder;
 
+    private Transaction [] fakeTransactions = { new Transaction("Monthly Salary", TransactionType.INCOME, LocalDate.now(),2500),
+            new Expense("Went to movies", TransactionType.EXPENSE, LocalDate.now(), 70, ExpenseCategory.FUN),
+            new Expense("Bought groceries", TransactionType.EXPENSE, LocalDate.now(), 70, ExpenseCategory.GROCERIES),
+            new Expense("Work commute", TransactionType.EXPENSE, LocalDate.now(), 15, ExpenseCategory.TRANSPORT),
+            new Expense("Bought Spike a new toy", TransactionType.EXPENSE, LocalDate.now(), 20, ExpenseCategory.PETS),
+            new Expense("COVID PCR Test", TransactionType.EXPENSE, LocalDate.now(), 180, ExpenseCategory.HEALTH),
+            new Expense("Bought a new chair", TransactionType.EXPENSE, LocalDate.now(), 200, ExpenseCategory.HOME),
+            new Expense("Got a book Sara recommended", TransactionType.EXPENSE, LocalDate.now(), 30, ExpenseCategory.EDUCATION),
+            new Expense("Paid a rent", TransactionType.EXPENSE, LocalDate.now(), 499, ExpenseCategory.RENT),
+            new Expense("Travelled to grandma", TransactionType.EXPENSE, LocalDate.now(), 500, ExpenseCategory.TRAVEL)
+    };
+
     @PostConstruct
     public void init(){
         User user = new User("test@gmail.com", passwordEncoder.encode("test"));
-        //    public Transaction(String title, TransactionType transactionType, LocalDate dateOfEntry, double transactionAmount) {
         userService.saveUser(user);
-        Transaction transaction1 = new Transaction("Monthly Salary", TransactionType.INCOME, LocalDate.now(),2500);
-        user.getExpenses().add(transaction1);
-        transaction1.setUser(user);
-        transactionService.saveTransaction(transaction1);
 
-        Transaction transaction2 = new Expense("Went to movies", TransactionType.EXPENSE, LocalDate.now(), 70, ExpenseCategory.FUN);
-        user.getExpenses().add(transaction2);
-        transaction2.setUser(user);
-        transactionService.saveTransaction(transaction2);
-
-
-        Transaction transaction3 = new Expense("Bought groceries", TransactionType.EXPENSE, LocalDate.now(), 70, ExpenseCategory.GROCERIES);
-        user.getExpenses().add(transaction3);
-        transaction3.setUser(user);
-        transactionService.saveTransaction(transaction3);
+        for(Transaction transaction : fakeTransactions){
+            user.getExpenses().add(transaction);
+            transaction.setUser(user);
+            transactionService.saveTransaction(transaction);
+        }
 
         User user2 = new User("mest@gmail.com", passwordEncoder.encode("test"));
         userService.saveUser(user2);

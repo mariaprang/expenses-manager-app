@@ -5,7 +5,6 @@ import javax.persistence.Table;
 import java.time.LocalDate;
 
 @Entity
-@Table(name="user_income")
 public class IncomeTransaction extends Transaction{
 
     private String incomeSource;

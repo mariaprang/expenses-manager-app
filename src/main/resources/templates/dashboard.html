@@ -33,6 +33,10 @@
 				<div class="expense-wrap" th:each="transaction : ${allTransactions}">
 					<div class="title-and-category">
 						<div class="title" th:text="${transaction.title}"></div>
+						<div th:unless="${transaction.isExpense}" class="category-wrap">
+							<i class="far fa-money-bill-alt"></i>
+							<span>INCOME</span>
+						</div>
 						<div th:if="${transaction.isExpense}" class="category-wrap">
 							<div class="category">
 								<th:block th:switch="${transaction.category}">
@@ -44,12 +48,49 @@
 										<i class="fas fa-cocktail"></i>
 										<span>FUN</span>
 									</div>
+									<div th:case="${T(expensesTracker.models.ExpenseCategory).CLOTHING}">
+										<i class="fas fa-tshirt"></i>
+										<span>CLOTHING</span>
+									</div>
+									<div th:case="${T(expensesTracker.models.ExpenseCategory).TRAVEL}">
+										<i class="fas fa-plane"></i>
+										<span>TRAVEL</span>
+									</div>
+
+									<div th:case="${T(expensesTracker.models.ExpenseCategory).EDUCATION}">
+										<i class="fas fa-graduation-cap"></i>
+										<span>EDUCATION</span>
+									</div>
+
+									<div th:case="${T(expensesTracker.models.ExpenseCategory).HEALTH}">
+										<i class="fas fa-heartbeat"></i>
+										<span>HEALTH</span>
+									</div>
+
+									<div th:case="${T(expensesTracker.models.ExpenseCategory).RENT}">
+										<i class="fas fa-file-invoice-dollar"></i>
+										<span>RENT</span>
+									</div>
+
+									<div th:case="${T(expensesTracker.models.ExpenseCategory).HOME}">
+										<i class="fas fa-home"></i>
+										<span>HOME</span>
+									</div>
+
+									<div th:case="${T(expensesTracker.models.ExpenseCategory).PETS}">
+										<i class="fas fa-paw"></i>
+										<span>PETS</span>
+									</div>
+									<div th:case="${T(expensesTracker.models.ExpenseCategory).TRANSPORT}">
+										<i class="fas fa-bus"></i>
+										<span>TRANSPORT</span>
+									</div>
 								</th:block>
 							</div>
 						</div>
 					</div>
-					<div class="date">09/01/16</div>
-					<div class="amount">$98</div>
+					<div class="date" th:datetime="${transaction.dateOfEntry}">09/01/16</div>
+					<div class="amount" th:text="${transaction.transactionAmount}+'$'">$98</div>
 				</div>
 			</div>
 
