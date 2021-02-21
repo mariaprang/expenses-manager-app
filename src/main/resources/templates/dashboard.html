@@ -34,8 +34,10 @@
 					<div class="title-and-category">
 						<div class="title" th:text="${transaction.title}"></div>
 						<div th:unless="${transaction.isExpense}" class="category-wrap">
+							<div class="category">
 							<i class="far fa-money-bill-alt"></i>
 							<span>INCOME</span>
+							</div>
 						</div>
 						<div th:if="${transaction.isExpense}" class="category-wrap">
 							<div class="category">
@@ -90,7 +92,7 @@
 						</div>
 					</div>
 					<div class="date" th:datetime="${transaction.dateOfEntry}">09/01/16</div>
-					<div class="amount" th:text="${transaction.transactionAmount}+'$'">$98</div>
+					<div th:classappend="${transaction.isExpense} ? 'amount expense' : 'amount income'" th:text="${transaction.transactionAmount}+'$'">$98</div>
 				</div>
 			</div>
 
