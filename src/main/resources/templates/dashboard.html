@@ -37,7 +37,20 @@
                          </label>
                      </div>
                     <div class="entry-content">
+                        <form th:action="@{/addIncome}">
+                           <div class="column">
+                               <label for="income-source">Incoume source:</label>
+                               <input type="text" name="income-source" id="income-source">
+                           </div>
 
+                            <div class="column">
+                                <label for="income-amount">Incoume source:</label>
+                                <input type="number" name="income-amount" id="income-amount">
+                            </div>
+
+                         <input type="submit" value="Add income">
+
+                        </form>
                     </div>
                 </div>
             </div>
