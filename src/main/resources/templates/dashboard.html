@@ -1,114 +1,127 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:th="http://www.thymeleaf.org">
+      xmlns:th="http://www.thymeleaf.org">
 <head th:replace="fragments/header :: head"></head>
 <body>
-	<div class="container">
-       <div th:replace="fragments/navbar::navigation"></div>
-		<div class="main-content">
+<div class="container">
+    <div th:replace="fragments/navbar::navigation"></div>
+    <div class="main-content">
 
-			<div class="section-header">
-				Dashboard
-			</div>
+        <div class="section-header">
+            Dashboard
+        </div>
 
-			<div class="wallet-wrap">
-				<i class="fas fa-wallet"></i>
-				<div>
-					<div>Total Balance</div>
-					<div class="money" th:text="${user.balance}+' USD'"></div>
-				</div>
-			</div>
+        <div class="wallet-wrap">
+            <i class="fas fa-wallet"></i>
+            <div>
+                <div>Total Balance</div>
+                <div class="money" th:text="${user.balance}+' USD'"></div>
+            </div>
+        </div>
 
-			<div class="section-header row space-between">
-				Transactions
-<!--					<input type="submit" class="create-new-button" value="New Transaction">-->
-				<a href="#" class="create-new-button trigger">New Transaction</a>
-                <div class="modal">
-                    <div class="modal-content">
-                        <span class="close-button">&times;</span>
-                        <h1>Hello, I am a modal!</h1>
+        <div class="section-header row space-between">
+            Transactions
+            <!--					<input type="submit" class="create-new-button" value="New Transaction">-->
+            <a href="#" class="create-new-button trigger">New Transaction</a>
+            <div class="modal">
+                <div class="modal-content">
+                    <span class="close-button">&times;</span>
+                     <div class="row center">
+                         <label class="radio">
+                             <input type="radio" name="r" value="1" checked>
+                             <span>Income</span>
+                         </label>
+                         <label class="radio">
+                             <input type="radio" name="r" value="2">
+                             <span>Expense</span>
+                         </label>
+                     </div>
+                    <div class="entry-content">
+
                     </div>
                 </div>
-			</div>
+            </div>
+        </div>
 
 
+        <div th:unless="${#lists.isEmpty(allTransactions)}" class="all-expenses">
 
-			<div th:unless="${#lists.isEmpty(allTransactions)}" class="all-expenses">
+            <div class="expense-wrap" th:each="transaction : ${allTransactions}">
+                <div class="title-and-category">
+                    <div class="title" th:text="${transaction.title}"></div>
+                    <div th:unless="${transaction.isExpense}" class="category-wrap">
+                        <div class="category">
+                            <i class="far fa-money-bill-alt"></i>
+                            <span>INCOME</span>
+                        </div>
+                    </div>
+                    <div th:if="${transaction.isExpense}" class="category-wrap">
+                        <div class="category">
+                            <th:block th:switch="${transaction.category}">
+                                <div th:case="${T(expensesTracker.models.ExpenseCategory).GROCERIES}">
+                                    <i class="fas fa-shopping-cart"></i>
+                                    <span>Groceries</span>
+                                </div>
+                                <div th:case="${T(expensesTracker.models.ExpenseCategory).FUN}">
+                                    <i class="fas fa-cocktail"></i>
+                                    <span>FUN</span>
+                                </div>
+                                <div th:case="${T(expensesTracker.models.ExpenseCategory).CLOTHING}">
+                                    <i class="fas fa-tshirt"></i>
+                                    <span>CLOTHING</span>
+                                </div>
+                                <div th:case="${T(expensesTracker.models.ExpenseCategory).TRAVEL}">
+                                    <i class="fas fa-plane"></i>
+                                    <span>TRAVEL</span>
+                                </div>
 
-				<div class="expense-wrap" th:each="transaction : ${allTransactions}">
-					<div class="title-and-category">
-						<div class="title" th:text="${transaction.title}"></div>
-						<div th:unless="${transaction.isExpense}" class="category-wrap">
-							<div class="category">
-							<i class="far fa-money-bill-alt"></i>
-							<span>INCOME</span>
-							</div>
-						</div>
-						<div th:if="${transaction.isExpense}" class="category-wrap">
-							<div class="category">
-								<th:block th:switch="${transaction.category}">
-									<div th:case="${T(expensesTracker.models.ExpenseCategory).GROCERIES}">
-										<i class="fas fa-shopping-cart"></i>
-										<span>Groceries</span>
-									</div>
-									<div th:case="${T(expensesTracker.models.ExpenseCategory).FUN}">
-										<i class="fas fa-cocktail"></i>
-										<span>FUN</span>
-									</div>
-									<div th:case="${T(expensesTracker.models.ExpenseCategory).CLOTHING}">
-										<i class="fas fa-tshirt"></i>
-										<span>CLOTHING</span>
-									</div>
-									<div th:case="${T(expensesTracker.models.ExpenseCategory).TRAVEL}">
-										<i class="fas fa-plane"></i>
-										<span>TRAVEL</span>
-									</div>
+                                <div th:case="${T(expensesTracker.models.ExpenseCategory).EDUCATION}">
+                                    <i class="fas fa-graduation-cap"></i>
+                                    <span>EDUCATION</span>
+                                </div>
 
-									<div th:case="${T(expensesTracker.models.ExpenseCategory).EDUCATION}">
-										<i class="fas fa-graduation-cap"></i>
-										<span>EDUCATION</span>
-									</div>
+                                <div th:case="${T(expensesTracker.models.ExpenseCategory).HEALTH}">
+                                    <i class="fas fa-heartbeat"></i>
+                                    <span>HEALTH</span>
+                                </div>
 
-									<div th:case="${T(expensesTracker.models.ExpenseCategory).HEALTH}">
-										<i class="fas fa-heartbeat"></i>
-										<span>HEALTH</span>
-									</div>
+                                <div th:case="${T(expensesTracker.models.ExpenseCategory).RENT}">
+                                    <i class="fas fa-file-invoice-dollar"></i>
+                                    <span>RENT</span>
+                                </div>
 
-									<div th:case="${T(expensesTracker.models.ExpenseCategory).RENT}">
-										<i class="fas fa-file-invoice-dollar"></i>
-										<span>RENT</span>
-									</div>
+                                <div th:case="${T(expensesTracker.models.ExpenseCategory).HOME}">
+                                    <i class="fas fa-home"></i>
+                                    <span>HOME</span>
+                                </div>
 
-									<div th:case="${T(expensesTracker.models.ExpenseCategory).HOME}">
-										<i class="fas fa-home"></i>
-										<span>HOME</span>
-									</div>
+                                <div th:case="${T(expensesTracker.models.ExpenseCategory).PETS}">
+                                    <i class="fas fa-paw"></i>
+                                    <span>PETS</span>
+                                </div>
+                                <div th:case="${T(expensesTracker.models.ExpenseCategory).TRANSPORT}">
+                                    <i class="fas fa-bus"></i>
+                                    <span>TRANSPORT</span>
+                                </div>
+                            </th:block>
+                        </div>
+                    </div>
+                </div>
+                <div class="date" th:datetime="${transaction.dateOfEntry}">09/01/16</div>
+                <div th:classappend="${transaction.isExpense} ? 'amount expense' : 'amount income'"
+                     th:text="${transaction.transactionAmount}+'$'">$98
+                </div>
+            </div>
+        </div>
 
-									<div th:case="${T(expensesTracker.models.ExpenseCategory).PETS}">
-										<i class="fas fa-paw"></i>
-										<span>PETS</span>
-									</div>
-									<div th:case="${T(expensesTracker.models.ExpenseCategory).TRANSPORT}">
-										<i class="fas fa-bus"></i>
-										<span>TRANSPORT</span>
-									</div>
-								</th:block>
-							</div>
-						</div>
-					</div>
-					<div class="date" th:datetime="${transaction.dateOfEntry}">09/01/16</div>
-					<div th:classappend="${transaction.isExpense} ? 'amount expense' : 'amount income'" th:text="${transaction.transactionAmount}+'$'">$98</div>
-				</div>
-			</div>
-
-			<div th:if="${#lists.isEmpty(allTransactions)}" class="empty-div">
-				<div><img src="images/box.png"></div>
-				<span class="instructions">Looks like you don't have any transactions so far!
+        <div th:if="${#lists.isEmpty(allTransactions)}" class="empty-div">
+            <div><img src="images/box.png"></div>
+            <span class="instructions">Looks like you don't have any transactions so far!
 						Click <span style="color: black; font-width: 600; font-style: italic">"New Transaction"</span> above and start planning your budget!	</span>
-			</div>
+        </div>
 
-		</div>
-	</div>
+    </div>
+</div>
 <script>
     var modal = document.querySelector(".modal");
     var trigger = document.querySelector(".trigger");
