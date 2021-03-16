@@ -26,31 +26,60 @@
             <div class="modal">
                 <div class="modal-content">
                     <span class="close-button">&times;</span>
-                     <div class="row center">
-                         <label class="radio">
-                             <input type="radio" name="r" value="1" checked>
-                             <span>Income</span>
-                         </label>
-                         <label class="radio">
-                             <input type="radio" name="r" value="2">
-                             <span>Expense</span>
-                         </label>
-                     </div>
+                    <form name="typeForm" class="row center">
+                        <label class="radio">
+                            <input type="radio" name="r" id="r1" value="1" checked onclick="displayForm();">
+                            <span>Income</span>
+                        </label>
+                        <label class="radio">
+                            <input type="radio" name="r" id="r2" value="2" onclick="displayForm();">
+                            <span>Expense</span>
+                        </label>
+                    </form>
                     <div class="entry-content">
-                        <form th:action="@{/addIncome}">
-                           <div class="column">
-                               <label for="income-source">Incoume source:</label>
-                               <input type="text" name="income-source" id="income-source">
-                           </div>
+                        <form th:action="@{/addIncome}" id="income-form">
+                            <div class="column">
+                                <label for="income-source">Incoume source:</label>
+                                <input type="text" name="income-source" id="income-source">
+                            </div>
 
                             <div class="column">
-                                <label for="income-amount">Incoume source:</label>
+                                <label for="income-amount">Amount:</label>
                                 <input type="number" name="income-amount" id="income-amount">
                             </div>
 
-                         <input type="submit" value="Add income">
+                            <input type="submit" class="create-new-button" value="Add income">
 
                         </form>
+
+                        <form th:action="@{/addExpense}" id="expense-form">
+                            <div class="form-content">
+                                <div class="column">
+                                    <label for="title">Title:</label>
+                                    <input type="text" id="title" name="expense-title">
+                                </div>
+
+                                <div class="column">
+                                    <label for="category">Category:</label>
+
+                                    <select id="category">
+                                        <option>Supplies</option>
+                                        <option>Other</option>
+                                    </select>
+                                </div>
+                                <div class="column">
+                                    <label for="date">Date:</label>
+                                    <input type="date" id="date" value="date" name="expense-date">
+                                </div>
+
+                                <div class="column">
+                                    <label for="amount">Amount:</label>
+                                    <input type="number" id="amount" name="expense-title">
+                                </div>
+                                <input type="submit" class="create-new-button" value="Add expense">
+                            </div>
+                        </form>
+
                     </div>
                 </div>
             </div>
@@ -140,6 +169,22 @@
     var trigger = document.querySelector(".trigger");
     var closeButton = document.querySelector(".close-button");
 
+    function displayForm() {
+        if (document.getElementById('r1').checked) {
+            console.log('r1');
+            document.getElementById("income-form").style.display = "block";
+            // document.getElementById("income-form").classList.remove("hidden");
+            document.getElementById("expense-form").style.display = "none";
+            // document.getElementById("income-form").classList.remove("visible");
+        } else if (document.getElementById('r2').checked) {
+            console.log('r2');
+            document.getElementById("expense-form").style.display = "block";
+            // document.getElementById("expense-form").classList.remove("hidden");
+            document.getElementById("income-form").style.display = "none";
+            // document.getElementById("income-form").classList.remove("visible");
+        }
+    }
+
     function toggleModal() {
         modal.classList.toggle("show-modal");
     }
@@ -148,11 +193,14 @@
         if (event.target === modal) {
             toggleModal();
         }
+        displayForm();
     }
 
     trigger.addEventListener("click", toggleModal);
     closeButton.addEventListener("click", toggleModal);
     window.addEventListener("click", windowOnClick);
+
+
 </script>
 </body>
 
